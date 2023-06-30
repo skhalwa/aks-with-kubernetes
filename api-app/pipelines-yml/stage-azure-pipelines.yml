@@ -1,0 +1,35 @@
+trigger:
+
+  batch: true
+  branches:
+    include:
+    - staging
+
+  paths:
+    include:
+    - /api-app/api
+    - /api-app/manifest
+    - /api-app/pipelines-yml
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+extends:
+  template: common-acr-build.yml
+
+# stages:
+# - stage: Push
+#   displayName: Deploy To ACR
+#   jobs: 
+#   - job: staging
+#     displayName: Push
+#     condition: eq(variables['Build.SourceBranch'], 'refs/heads/staging')
+#     steps:
+#       - task: KubernetesManifest@1
+#         inputs:
+#           action: 'deploy'
+#           connectionType: 'kubernetesServiceConnection'
+#           kubernetesServiceConnection: 'greensight-k8s-dns-1p9wkvg6.hcp.centralindia.azmk8s.io'
+#           namespace: 'gs'
+#           manifests: 'mainfest/api.yml'
+

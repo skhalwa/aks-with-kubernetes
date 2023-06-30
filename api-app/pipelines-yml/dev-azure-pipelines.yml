@@ -1,0 +1,18 @@
+trigger:
+  batch: true
+  branches:
+    include:
+    - dev
+
+  paths:
+    include:
+    - /api-app/api
+    - /api-app/manifest
+    - /api-app/pipelines-yml
+    
+pool:
+  vmImage: 'ubuntu-latest'
+
+extends:
+  template: acr-build-api.yml
+

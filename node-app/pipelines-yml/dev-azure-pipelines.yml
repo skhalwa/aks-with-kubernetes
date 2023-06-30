@@ -1,0 +1,16 @@
+trigger:
+  batch: true
+  branches:
+    include:
+      - dev
+  paths:
+    include:
+      - /node-app/node
+      - /node-app/manifest
+      - /node-app/pipelines.yml
+
+pool:
+  vmImage: ubuntu-latest
+
+extends:
+  template: common-acr-build.yml
